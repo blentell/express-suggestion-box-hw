@@ -29,10 +29,9 @@ router.get("/get-suggestions-by-id/:id", function (req, res, next) {
 		);
 });
 
-router.get("/get-suggestions-by-author/", function (req, res, next) {
+router.get("/get-suggestions-by-author", function (req, res, next) {
 	suggestionController.getSuggestionsByAuthor(
-		suggestionAuthor,
-		req.body,
+		req.query,
 		function (err, foundSuggestions) {
 			if (err) {
 				res.status(500).json({ message: "Something went wrong!", error: err });
